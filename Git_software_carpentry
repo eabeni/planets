@@ -1,0 +1,149 @@
+git config --global user.name "eabeni"
+git config --global user.email "edoardo.abeni@gmail.com"
+git config --global core.editor "nano -w"
+git config --global http.proxy proxy-url
+git config --list
+cd ~/Desktop
+mkdir planets
+cd planets
+git init
+ls -a
+nano mars.txt
+#type the following sentance "Cold and dry, but everything is my favorite color"
+git status
+git add mars.txt
+git status
+git commit -m "Start notes on Mars as a base"
+git status
+git log
+nano mars.txt
+#type the following sentance "The two moons may be a problem for Wolfman"
+cat mars.txt
+git status
+git diff
+git add mars.txt
+git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+nano mars.txt
+cat mars.txt
+#Cold and dry, but everything is my favorite color
+#The two moons may be a problem for Wolfman
+#But the Mummy will appreciate the lack of humidity
+git diff
+git add mars.txt
+git diff
+git diff --staged
+git commit -m "Discuss concerns about Mars' climate for Mummy"
+git status
+git log
+git log -1
+git log --oneline
+
+
+mkdir spaceships
+git status
+git add spaceships
+git status
+
+
+touch spaceships/apollo-11 spaceships/sputnik-1
+git status
+git add spaceships
+git status
+
+git commit -m "Add some initial thoughts on spaceships"
+
+
+nano mars.txt
+cat mars.txt
+
+#Cold and dry, but everything is my favorite color
+#The two moons may be a problem for Wolfman
+#But the Mummy will appreciate the lack of humidity
+#An ill-considered change
+
+git diff HEAD mars.txt #ultima versione
+git diff HEAD~1 mars.txt #penultima versione
+git diff HEAD~3 mars.txt
+
+git show HEAD~3 mars.txt
+
+git diff c93d948a7b7422c7620d6a5a88679224f5652af4 mars.txt
+
+
+git status
+
+git checkout HEAD mars.txt
+cat mars.txt
+
+
+git checkout c93d948 mars.txt
+git status
+
+
+
+
+
+cd planets
+echo "Venus is beautiful and full of love" > venus.txt
+git add venus.txt
+echo "Venus is too hot to be suitable as a base" >> venus.txt
+git commit -m "Comment on Venus as an unsuitable base"
+cat venus.txt
+git checkout HEAD venus.txt
+cat venus.txt #this will print the contents of venus.txt to the screen
+
+
+mkdir results
+touch a.dat b.dat c.dat results/a.out results/b.out
+git status
+
+nano .gitignore
+
+#type the following
+#*.dat
+#results/
+
+
+
+cat .gitignore
+git status
+
+git add .gitignore
+git commit -m "Ignore data files and the results folder."
+git status
+
+git add a.dat
+
+git status --ignored
+
+nano .gitignore
+#type the following
+#*.dat
+#results/
+#!final.dat      # except final.data
+
+touch final.dat
+git status
+
+
+#type the following
+results/*               # ignore everything in results folder
+!results/data/          # do not ignore results/data/ contents
+
+
+
+
+git config --global http.proxy http://eabeni:cla448122032udio86@proxy.server.com:8080
+git config --global https.proxy http://eabeni:cla448122032udio86@proxy.server.com:8080
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+git remote add origin https://github.com/eabeni/planets.git
+git remote -v
+git push -u origin master
+git pull origin master
+
+
+
+
